@@ -432,7 +432,7 @@ fn validate_and_push_entry(entry: Entry, lineno: usize, acc: &mut ParseAccumulat
     if !is_valid_name(&entry.name) {
         acc.warnings.push(format!(
             "warning: line {lineno}: invalid name '{}' \
-             — names must match [a-zA-Z0-9._-], skipping",
+             — names must match [a-zA-Z0-9._-] and not be only dots, skipping",
             entry.name
         ));
     } else if acc.seen_names.contains(&entry.name) {
